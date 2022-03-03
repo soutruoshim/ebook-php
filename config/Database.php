@@ -1,75 +1,59 @@
-<?php
+<?php 
+    class database{
+        public $que;
+        private $servername='localhost';
+        private $username='root';
+        private $password='';
+        private $dbname='laravel9';
+        private $result=array();
+        private $mysqli='';
 
-define('HOST', 'localhost');
-define('USER_NAME', 'root');
-define('PASSWORD', '');
-define('DB_NAME', 'ebook_php_db');
-
-// class DB start
-class Database
-{
-    private $connection;
-
-    // Constructor
-    public function __construct()
-    {
-        $this->open_db_connection();
-    }
-
-    // Creating connection with db
-    public function open_db_connection()
-    {
-        $this->connection = mysqli_connect(HOST, USER_NAME, PASSWORD, DB_NAME);
-
-        if (mysqli_connect_error()) {
-            die('Connection Error: '.mysqli_connect_error());
-        }
-    }
-
-    // Running SQL query on db
-    public function query($sql)
-    {
-        $result = $this->connection->query($sql);
-
-        if (!$result) {
-            die('Query fails : '.$sql);
+        public function __construct(){
+            $this->mysqli = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
         }
 
-        return $result;
-    }
+        public function insert($table,$para=array()){
+            $table_columns = implode(',', array_keys($para));
+            $table_value = implode("','", $para);
 
-    // Getting list of all rows
-    public function fetch_array($result)
-    {
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $resultarray[] = $row;
+            $sql="INSERT INTO $table($table_columns) VALUES('$table_value')";
+            $result = $this->mysqli->query($sql);
+        }
+
+        public function update($table,$para=array(),$id){
+            $args = array();
+
+            foreach ($para as $key => $value) {
+                $args[] = "$key = '$value'"; 
             }
-            return $resultarray;
+
+            $sql="UPDATE  $table SET " . implode(',', $args);
+
+            $sql .=" WHERE $id";
+
+            $result = $this->mysqli->query($sql);
+        }
+
+        public function delete($table,$id){
+            $sql="DELETE FROM $table";
+            $sql .=" WHERE $id ";
+            $sql;
+            $result = $this->mysqli->query($sql);
+        }
+
+        public $sql;
+
+        public function select($table,$rows="*",$where = null){
+            if ($where != null) {
+                $sql="SELECT $rows FROM $table WHERE $where";
+            }else{
+                $sql="SELECT $rows FROM $table";
+            }
+
+            $this->sql = $result = $this->mysqli->query($sql);
+        }
+        public function __destruct(){
+            $this->mysqli->close();
         }
     }
-
-    // Getting only 1 row
-    public function fetch_row($result)
-    {
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            return $row;
-        }
-    }
-
-    // Checking if string is in proper format
-    public function escape_value($value)
-    {
-        $value = $this->connection->real_escape_string($value);
-        return $value;
-    }
-
-    // Closing connection
-    public function close_connection()
-    {
-        $this->connection->close();
-    }
-} // Class ends
-
-$database = new Database();
+?>
