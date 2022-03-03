@@ -10,7 +10,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-<link href="main.css" rel="stylesheet"></head>
+<link href="main.css" rel="stylesheet">
+<style>
+     .hoverdiv{
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        color: #fff;
+        opacity:0 ;
+        transition: all 0.3s ease-in-out;
+        box-sizing: border-box;
+        text-align: center;
+     }
+     .container-book:hover .hoverdiv{
+         opacity: 1;
+     }
+     .div_text{
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
 <body>
     <div class="container">
         <div style="background-color: gainsboro; padding: 0px 20px 20px 20px; border-radius: 6px">
@@ -46,9 +74,24 @@
             ?>
             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                 <div class="col-md-3" style="">
-                    <a href="ebook_detail.php?id=<?= $row['id'] ?>">
-                       <img src="<?= WEB_URL.'images/ebook/'.$row['image'] ?>" width="250" height="280" style="padding: 8px">
-                    </a>
+                    <div class="container-book" style="position: relative;
+                            display:block;
+                            width: 200px;
+                            height: 260px;
+                            background: #000;
+                            background:url('<?= WEB_URL.'images/ebook/'.$row['image'] ?>') ;
+                            background-repeat: no-repeat, repeat;
+                            background-size: cover;
+                            transition: all 0.3s ease-in-out;
+                            ">
+                         <div class="hoverdiv">
+                             <div class="div_text">
+                                <h6><?= $row['title'] ?></h6>
+                                <a href="<?= WEB_URL.'files/ebook/'.$row['book_file'] ?>" class="btn btn-success">Download</a>
+                             </div>
+                         </div>
+                    </div>
+                
                 </div>
             <?php }?>
         </div>
