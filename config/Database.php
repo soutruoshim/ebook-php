@@ -17,6 +17,7 @@
             $table_value = implode("','", $para);
 
             $sql="INSERT INTO $table($table_columns) VALUES('$table_value')";
+            echo $sql;
             $result = $this->mysqli->query($sql);
         }
 
@@ -52,6 +53,9 @@
 
             $this->sql = $result = $this->mysqli->query($sql);
         }
+
+        
+
         public function __destruct(){
             $this->mysqli->close();
         }

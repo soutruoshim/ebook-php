@@ -36,31 +36,21 @@
        </div>
         <br>
         <div class="row">
-           <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            <div class="col-md-3" style="">
-               <img src="images/ebook.jpg" width="250" style="padding: 8px">
-            </div>
-            
+        <?php 
+            // include 'database.php';
+            include(__DIR__ . "/config/database.php");
+            include(__DIR__ . "/config/config.php");
+            $b = new database();
+            $b->select("books","*");
+            $result = $b->sql;
+            ?>
+            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                <div class="col-md-3" style="">
+                    <a href="ebook_detail.php?id=<?= $row['id'] ?>">
+                       <img src="<?= WEB_URL.'images/ebook/'.$row['image'] ?>" width="250" height="280" style="padding: 8px">
+                    </a>
+                </div>
+            <?php }?>
         </div>
         <div style=" padding: 20px">
             <div class="row">
