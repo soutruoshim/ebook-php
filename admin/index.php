@@ -1,5 +1,6 @@
 <?php
    include("inc/header.php");
+   
 ?>
 <div class="app-page-title">
     <div class="page-title-wrapper">

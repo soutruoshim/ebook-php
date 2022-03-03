@@ -12,6 +12,9 @@
     <meta name="msapplication-tap-highlight" content="no">
 <link href="../main.css" rel="stylesheet"></head>
 <body>
+    <?php
+      $active = $_SERVER['REQUEST_URI'];
+    ?>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
@@ -128,27 +131,27 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading"></li>
                                 <li>
-                                    <a href="index.html" class="mm-active">
+                                    <a href="../index.php" class="">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         View Page
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
-                                    <a href="../admin/category.php" class="">
+                                    <a href="../admin/category.php" class="<?= $active == '/ebook-php/admin/category.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                         Categories
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
-                                    <a href="index.html" class="">
+                                    <a href="../admin/ebook.php" class="<?= $active == '/ebook-php/admin/ebook.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-notebook"></i>
                                         E-books
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.html" class="">
+                                    <a href="../admin/user.php" class="<?= $active == '/ebook-php/admin/user.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-users"></i>
                                         Users
                                     </a>
