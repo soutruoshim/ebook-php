@@ -42,6 +42,7 @@
         <div class="main-card mb-3 card">
         <div class="card-body"><h5 class="card-title"></h5>
             <form method="POST" action="queries/update_user.php">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="position-relative form-group">
                     <label class="">First Name</label>
                     <input name="firstname" id="firstname" value="<?php if(isset($row)) { echo $row['firstname']; } ?>" placeholder="" type="text" class="form-control">
