@@ -1,10 +1,11 @@
 <?php 
+    include ('config.php');
     class database{
         public $que;
-        private $servername='localhost';
-        private $username='root';
-        private $password='';
-        private $dbname='laravel9';
+        private $servername = SERVER_NAME;
+        private $username = USER_NAME;
+        private $password= DB_PASSWORD;
+        private $dbname= DB_NAME;
         private $result=array();
         private $mysqli='';
 
