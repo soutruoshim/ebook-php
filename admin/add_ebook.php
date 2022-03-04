@@ -46,11 +46,31 @@
             </div>
             <div class="position-relative form-group">
                 <label class="">Category</label>
-                <input name="category_id" id="category_id" placeholder="" type="text" class="form-control">
+                <?php 
+                    // include 'database.php';
+                    include(__DIR__ . "/../config/database.php");
+                    $b = new database();
+                    $b->select("categories","*");
+                    $result = $b->sql;
+                ?>
+                <select class="form-control" name="category_id" id="category_id">
+                    <option value="" selected disabled>Choice Category</option>
+                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                 <option value="<?= $row['id'] ?>"> <?= $row['name'] ?> </option>
+                <?php } ?>
+
+                </select>
             </div>
             <div class="position-relative form-group">
                 <label class="">Publication Year</label>
-                <input name="publication_year" id="publication_year" placeholder="" type="text" class="form-control">
+                <!-- <input name="publication_year" id="publication_year" placeholder="" type="text" class="form-control"> -->
+                <select class="form-control" name="publication_year" id="publication_year">
+                    <option value="" selected disabled>Select Year</option>
+                <?php for($year = intval(date('Y')) - 10;  $year <= intval(date('Y')); $year++ ) { ?>
+                 <option value="<?= $year ?>"> <?= $year ?> </option>
+                <?php } ?>
+
+                </select>
             </div>
             <div class="position-relative form-group">
                 <label class="">Price</label>
