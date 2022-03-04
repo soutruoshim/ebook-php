@@ -52,7 +52,7 @@
                     <label class="">Confirm Password</label>
                     <input name="c_password" id="c_password" placeholder="" type="password" class="form-control">
                 </div>
-                <input type="submit" class="btn btn-dark" name="submit" value="Save Category">
+                <input type="submit" class="btn btn-dark" name="submit" value="Save User">
             </form>
         </div>
         </div>

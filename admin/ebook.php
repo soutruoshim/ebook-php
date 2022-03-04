@@ -30,15 +30,17 @@
 
             <div class="content-wrap">
                 <div class="container-fluid">
+                <div class="main-card mb-3 card">
+                 <div class="card-body"><h5 class="card-title"></h5>
                 <div class="row">
                         <div class="col-md-12 p-0">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Cover</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">File</th>
+                                        <th scope="col" width="5%">Id</th>
+                                        <th scope="col" width="10%">Cover</th>
+                                        <th scope="col" width="40%">Title</th>
+                                        <th scope="col" width="40%">File</th>
                                         <th scope="col" width="5%">Action</th>
                                     </tr>
                                 </thead>
@@ -72,6 +74,8 @@
                               </tbody>
                             </table>
                         </div>
+                    </div>
+                     </div>
                     </div>
                 </div>
             </div>

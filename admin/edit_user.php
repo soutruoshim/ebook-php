@@ -5,7 +5,7 @@
        $id = $_GET['id'];
       
        $b = new database();
-       $b->select("categories","*","id='$id'");
+       $b->select("users","*","id='$id'");
        $result = $b->sql;
 
        $row = mysqli_fetch_assoc($result);
@@ -18,7 +18,7 @@
                 <i class="pe-7s-car icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Edit User
+            <div>Add User
                 <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
                 </div>
             </div>
@@ -41,17 +41,28 @@
     <div class="col-md-8">
         <div class="main-card mb-3 card">
         <div class="card-body"><h5 class="card-title"></h5>
-            <form method="POST" action="queries/update_category.php">
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <form method="POST" action="queries/update_user.php">
                 <div class="position-relative form-group">
-                    <label class="">Category Name</label>
-                    <input name="name" id="name" value="<?php if(isset($row)) { echo $row['name']; } ?>" placeholder="" type="text" class="form-control">
+                    <label class="">First Name</label>
+                    <input name="firstname" id="firstname" value="<?php if(isset($row)) { echo $row['firstname']; } ?>" placeholder="" type="text" class="form-control">
                 </div>
                 <div class="position-relative form-group">
-                    <label class="">Slug</label>
-                    <input name="slug" id="slug" value="<?php if(isset($row)) { echo $row['slug']; } ?>" placeholder="" type="text" class="form-control">
+                    <label class="">Last Name</label>
+                    <input name="lastname" id="lastname" value="<?php if(isset($row)) { echo $row['lastname']; } ?>" placeholder="" type="text" class="form-control">
                 </div>
-                <input type="submit" class="btn btn-dark" name="submit" value="Save Category">
+                <div class="position-relative form-group">
+                    <label class="">Email</label>
+                    <input name="email" id="email" value="<?php if(isset($row)) { echo $row['email']; } ?>" placeholder="" type="text" class="form-control">
+                </div>
+                <div class="position-relative form-group">
+                    <label class="">Password</label>
+                    <input name="password" id="password" value="<?php if(isset($row)) { echo $row['password']; } ?>" placeholder="" type="password" class="form-control">
+                </div>
+                <div class="position-relative form-group">
+                    <label class="">Confirm Password</label>
+                    <input name="c_password" id="c_password" value="<?php if(isset($row)) { echo $row['password']; } ?>" placeholder="" type="password" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-dark" name="submit" value="Save User">
             </form>
         </div>
         </div>
