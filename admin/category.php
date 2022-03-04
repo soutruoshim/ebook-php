@@ -30,14 +30,16 @@
 
             <div class="content-wrap">
                 <div class="container-fluid">
+                <div class="main-card mb-3 card">
+                 <div class="card-body"><h5 class="card-title"></h5>
                 <div class="row">
                         <div class="col-md-12 p-0">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Slug</th>
+                                        <th scope="col" width="5%">Id</th>
+                                        <th scope="col" width="45%">Name</th>
+                                        <th scope="col" width="45%">Slug</th>
                                         <th scope="col" width="5%">Action</th>
                                     </tr>
                                 </thead>
@@ -55,7 +57,7 @@
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['slug']; ?></td>
                                             <td>
-                                                <a href="edit.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
+                                                <a href="edit_category.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
                                             </td>
                                             <td>
                                                 <form method="POST" action="queries/delete_category.php">
@@ -70,6 +72,8 @@
                             </table>
                         </div>
                     </div>
+                </div>
+                </div>
                 </div>
             </div>
 

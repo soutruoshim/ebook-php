@@ -1,5 +1,15 @@
 <?php
    include("inc/header.php");
+   include(__DIR__ . "/../config/database.php");
+   if(isset($_GET['id'])){
+       $id = $_GET['id'];
+      
+       $b = new database();
+       $b->select("categories","*","id='$id'");
+       $result = $b->sql;
+
+       $row = mysqli_fetch_assoc($result);
+   }
 ?>
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -8,7 +18,7 @@
                 <i class="pe-7s-car icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Add Category
+            <div>Edit Category
                 <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
                 </div>
             </div>
@@ -31,14 +41,15 @@
     <div class="col-md-8">
         <div class="main-card mb-3 card">
         <div class="card-body"><h5 class="card-title"></h5>
-            <form method="POST" action="queries/insert_category.php">
+            <form method="POST" action="queries/update_category.php">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="position-relative form-group">
                     <label class="">Category Name</label>
-                    <input name="name" id="name" placeholder="" type="text" class="form-control">
+                    <input name="name" id="name" value="<?php if(isset($row)) { echo $row['name']; } ?>" placeholder="" type="text" class="form-control">
                 </div>
                 <div class="position-relative form-group">
                     <label class="">Slug</label>
-                    <input name="slug" id="slug" placeholder="" type="text" class="form-control">
+                    <input name="slug" id="slug" value="<?php if(isset($row)) { echo $row['slug']; } ?>" placeholder="" type="text" class="form-control">
                 </div>
                 <input type="submit" class="btn btn-dark" name="submit" value="Save Category">
             </form>
