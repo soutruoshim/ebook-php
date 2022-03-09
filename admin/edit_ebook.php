@@ -121,7 +121,7 @@
             </div>
             <div class="position-relative form-group">
                 <label class="">Image</label><br>
-                <div style="margin-bottom: 8px"><img id="book_photo" src="{{ asset('assets/images/avatars/empty_image.jpg')}}" width="180" height="200" alt=""></div>
+                <div style="margin-bottom: 8px"><img id="book_photo" src="<?php if(isset($row)) { echo WEB_URL.'/images/ebook/'.$row['image']; } ?>" width="180" height="200" alt=""></div>
                 <input type="file" name="image" placeholder="Choose image" id="image" class="form-control" onchange="document.getElementById('book_photo').src = window.URL.createObjectURL(this.files[0])">
             </div>
             <div class="position-relative form-group">
