@@ -11,8 +11,9 @@
     $row = mysqli_fetch_assoc($result);
     $image = $row['image'];
     $file = $row['book_file'];
-    unlink(WEB_URL.'images/ebook/'.$image);
-    unlink(WEB_URL. 'files/ebook/'.$file);
+    unlink(__DIR__ . "/../../images/ebook/".$image);
+    unlink(__DIR__ . "/../../files/ebook/".$file);
+   
 
     $a->delete('books',"id='$id'");
     if ($a == true) {
