@@ -73,14 +73,14 @@
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                            <button type="button" tabindex="0" class="dropdown-item">User Account</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Logout</button>
+                                            <a href="../admin/edit_user.php?id=<?= $_SESSION['id'] ?>" type="button" tabindex="0" class="dropdown-item">User Account</a>
+                                            <a href="../config/logout.php" type="button" tabindex="0" class="dropdown-item">Logout</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        SOUT RUOSHIM
+                                        <?= strtoupper($_SESSION['name']) ?>
                                     </div>
                                 </div>
                             </div>
