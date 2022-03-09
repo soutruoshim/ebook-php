@@ -41,7 +41,7 @@
     <div class="col-md-12">
         <div class="main-card mb-3 card">
         <div class="card-body"><h5 class="card-title"></h5>
-        <form method="POST" action="queries/insert_ebook.php" enctype="multipart/form-data">
+        <form method="POST" action="queries/update_ebook.php" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="row">
                 <div class="col-md-6">

@@ -1,12 +1,7 @@
 <?php 
     include(__DIR__ . "/../../config/database.php");
- 
-    
-
     if (isset($_POST['submit'])) {
-       
-        $a = new database();
-        $data = [];
+        $id = $_POST['id'];
         
         $data['title'] =  $_POST['title'];
         $data['author'] =  $_POST['author'];
@@ -87,9 +82,9 @@
                 }
             }
         }
-
-
-        $a->insert('books',$data);
+        
+        $a = new database(); 
+        $a->update('books',$data, "id='$id'");
         if ($a == true) {
             header('location:../ebook.php');
         }

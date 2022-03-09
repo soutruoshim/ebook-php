@@ -5,11 +5,11 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                <i class="pe-7s-notebook icon-gradient bg-mean-fruit">
                 </i>
             </div>
             <div>Ebook
-                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                <div class="page-title-subheading">This is a page for management ebooks.
                 </div>
             </div>
         </div>
