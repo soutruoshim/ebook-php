@@ -106,11 +106,12 @@
             
             <div class="position-relative form-group">
                 <label class="">Detail</label>
-                <input name="detail" id="detail" placeholder="" type="text" class="form-control">
+                <textarea rows="5" cols="20" name="detail" id="detail" placeholder="" type="text" class="form-control"></textarea>
+                
             </div>
             <div class="position-relative form-group">
                 <label class="">Image</label><br>
-                <div style="margin-bottom: 8px"><img id="book_photo" src="{{ asset('assets/images/avatars/empty_image.jpg')}}" width="180" height="200" alt=""></div>
+                <div style="margin-bottom: 8px"><img id="book_photo" src="<?= WEB_URL.'images/empty_img.png' ?>" width="180" height="200" alt=""></div>
                 <input type="file" name="image" placeholder="Choose image" id="image" class="form-control" onchange="document.getElementById('book_photo').src = window.URL.createObjectURL(this.files[0])">
             </div>
             <div class="position-relative form-group">

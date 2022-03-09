@@ -1,8 +1,9 @@
 <?php 
 session_start(); 
+
 include "Database.php";
 
-if (isset($_POST['uname']) && isset($_POST['password'])) {
+if (isset($_POST['email']) && isset($_POST['password'])) {
     function validate($data){
        $data = trim($data);
        $data = stripslashes($data);
@@ -10,7 +11,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
        return $data;
     }
 
-    $uname = validate($_POST['uname']);
+    $uname = validate($_POST['email']);
     $pass = validate($_POST['password']);
 
     if (empty($uname)) {
@@ -20,24 +21,27 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required");
         exit();
     }else{
-        $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
-        $result = mysqli_query($conn, $sql);
+        $b = new database();
+        $b->select("users","*","email='$uname' AND password='$pass'");
+        $result = $b->sql;
+       
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $uname && $row['password'] === $pass) {
+            //var_dump($row);
+            if ($row['email'] === $uname && $row['password'] === $pass) {
                 echo "Logged in!";
-                $_SESSION['user_name'] = $row['user_name'];
-                $_SESSION['name'] = $row['name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['name'] = $row['firstname'].' '.$row['lastname'];
                 $_SESSION['id'] = $row['id'];
-                header("Location: home.php");
+                header("Location: ../admin/index.php");
                 exit();
             }else{
-                header("Location: index.php?error=Incorect User name or password");
+                header("Location: ../login.php?error=Incorect User name or password");
                 exit();
             }
 
         }else{
-            header("Location: index.php?error=Incorect User name or password");
+            header("Location: ../login.php?error=Incorect User name or password");
             exit();
         }
     }

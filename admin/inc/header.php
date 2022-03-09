@@ -1,8 +1,8 @@
 <?php
-    // session_start();
-    // if (!isset($_SESSION['id']) && !isset($_SESSION['user_name'])) {
-    //      header("Location: index.php");
-    // }
+    session_start();
+    if (!isset($_SESSION['id']) && !isset($_SESSION['email'])) {
+         header("Location: ../index.php");
+    }
 ?>
 <!doctype html>
 <html lang="en">

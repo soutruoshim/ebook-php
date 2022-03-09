@@ -116,7 +116,8 @@
             
             <div class="position-relative form-group">
                 <label class="">Detail</label>
-                <input name="detail" id="detail" placeholder="" value="<?php if(isset($row)) { echo $row['detail']; } ?>" type="text" class="form-control">
+                <textarea rows="5" cols="20" name="detail" id="detail" placeholder="" type="text" class="form-control"><?php if(isset($row)) { echo $row['detail']; } ?></textarea>
+                
             </div>
             <div class="position-relative form-group">
                 <label class="">Image</label><br>

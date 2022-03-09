@@ -43,11 +43,11 @@
     <div class="container">
         <div style="background-color: gainsboro; padding: 0px 20px 20px 20px; border-radius: 6px">
             <div class="row">
-                <div class="col-md-11" style="text-align:center">
+                <div class="col-md-10" style="text-align:center">
                     <img src="images/logo.png" height="70">
                 </div>
-                <div class="col-md-1" style="text-align:center">
-                    <button class="btn btn-success">Administrator</button>
+                <div class="col-md-2" style="text-align:right">
+                    <a href="./login.php" class="mb-2 mr-2 border-0 btn-transition btn btn-outline-primary">Administrator</a>
                 </div>
                 <div class="col-md-12" style="text-align:center">
                     <i>Norton University Library. The world's largest ebook library</i>
@@ -60,7 +60,7 @@
                     <div class="input-group">
                             <input placeholder="Search for title, ISBN, Publisher..." type="text" class="form-control">
                             <div class="input-group-append">
-                                <button class="btn btn-success">Search</button>
+                                <button class="btn btn-outline-primary">Search</button>
                             </div>
                     </div>
                 </div>
