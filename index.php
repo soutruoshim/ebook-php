@@ -90,7 +90,7 @@
                             ">
                          <div class="hoverdiv">
                              <div class="div_text">
-                                <h6><?= $row['title'] ?></h6>
+                                <h6><?= substr($row['title'], 0, 20) ?></h6>
                                 <a href="<?= WEB_URL.'files/ebook/'.$row['book_file'] ?>" class="btn btn-success">Download</a>
                              </div>
                          </div>

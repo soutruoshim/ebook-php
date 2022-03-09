@@ -8,7 +8,7 @@
         $data['ISBN'] =  $_POST['ISBN'];
         $data['category_id'] =  $_POST['category_id'];
         $data['publication_year'] =  $_POST['publication_year'];
-        $data['detail'] =  $_POST['detail'];
+        $data['detail'] =  htmlspecialchars($_POST['detail']);
 
         //==============image======================
         $inv_dir = 'images/ebook';
