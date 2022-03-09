@@ -60,7 +60,7 @@
                                             <td><?php echo $row['title']; ?></td>
                                             <td><?php echo '<a href="'.WEB_URL.'files/ebook/'.$row['book_file'].'">Download File</a>'; ?></td>
                                             <td>
-                                                <a href="edit.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
+                                                <a href="edit_ebook.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
                                             </td>
                                             <td>
                                                 <form method="POST" action="queries/delete_ebook.php">

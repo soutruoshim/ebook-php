@@ -1,5 +1,15 @@
 <?php
    include("inc/header.php");
+   include(__DIR__ . "/../config/database.php");
+   if(isset($_GET['id'])){
+       $id = $_GET['id'];
+      
+       $b = new database();
+       $b->select("books","*","id='$id'");
+       $result = $b->sql;
+
+       $row = mysqli_fetch_assoc($result);
+   }
 ?>
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -32,6 +42,7 @@
         <div class="main-card mb-3 card">
         <div class="card-body"><h5 class="card-title"></h5>
         <form method="POST" action="queries/insert_ebook.php" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="row">
                 <div class="col-md-6">
                 </div>
@@ -42,13 +53,13 @@
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label class="">Title</label>
-                        <input name="title" id="title" placeholder="" type="text" class="form-control">
+                        <input name="title" id="title" value="<?php if(isset($row)) { echo $row['title']; } ?>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label class="">Author</label>
-                        <input name="author" id="author" placeholder="" type="text" class="form-control">
+                        <input name="author" id="author" value="<?php if(isset($row)) { echo $row['author']; } ?>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
             </div>
@@ -56,23 +67,22 @@
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label class="">ISBN</label>
-                        <input name="ISBN" id="ISBN" placeholder="" type="text" class="form-control">
+                        <input name="ISBN" id="ISBN" value="<?php if(isset($row)) { echo $row['ISBN']; } ?>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label class="">Category</label>
                         <?php 
-                            // include 'database.php';
-                            include(__DIR__ . "/../config/database.php");
+                           
                             $b = new database();
                             $b->select("categories","*");
                             $result = $b->sql;
                         ?>
                         <select class="form-control" name="category_id" id="category_id">
                             <option value="" selected disabled>Choice Category</option>
-                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                        <option value="<?= $row['id'] ?>"> <?= $row['name'] ?> </option>
+                        <?php while ($row_category = mysqli_fetch_assoc($result)) { ?>
+                        <option <?= $row_category['id']==$row['category_id']?'selected':''  ?> value="<?= $row_category['id'] ?>"> <?= $row_category['name'] ?> </option>
                         <?php } ?>
 
                         </select>
@@ -88,7 +98,7 @@
                         <select class="form-control" name="publication_year" id="publication_year">
                             <option value="" selected disabled>Select Year</option>
                         <?php for($year = intval(date('Y')) - 10;  $year <= intval(date('Y')); $year++ ) { ?>
-                        <option value="<?= $year ?>"> <?= $year ?> </option>
+                        <option  <?= $year==$row['publication_year']?'selected':''  ?> value="<?= $year ?>"> <?= $year ?> </option>
                         <?php } ?>
 
                         </select>
@@ -97,7 +107,7 @@
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                     <label class="">Price</label>
-                    <input name="price" id="price" placeholder="" type="text" class="form-control">
+                    <input name="price" id="price" placeholder="" value="<?php if(isset($row)) { echo $row['price']; } ?>" type="text" class="form-control">
                 </div>
                 </div>
             </div>
@@ -106,7 +116,7 @@
             
             <div class="position-relative form-group">
                 <label class="">Detail</label>
-                <input name="detail" id="detail" placeholder="" type="text" class="form-control">
+                <input name="detail" id="detail" placeholder="" value="<?php if(isset($row)) { echo $row['detail']; } ?>" type="text" class="form-control">
             </div>
             <div class="position-relative form-group">
                 <label class="">Image</label><br>

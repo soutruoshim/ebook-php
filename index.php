@@ -43,13 +43,17 @@
     <div class="container">
         <div style="background-color: gainsboro; padding: 0px 20px 20px 20px; border-radius: 6px">
             <div class="row">
-            <div class="col-md-12" style="text-align:center">
+                <div class="col-md-11" style="text-align:center">
                     <img src="images/logo.png" height="70">
+                </div>
+                <div class="col-md-1" style="text-align:center">
+                    <button class="btn btn-success">Administrator</button>
                 </div>
                 <div class="col-md-12" style="text-align:center">
                     <i>Norton University Library. The world's largest ebook library</i>
                 </div>
             </div>
+            
             <br>
         <div class="row">
             <div class="col-md-12">
@@ -67,12 +71,12 @@
         <?php 
             // include 'database.php';
             include(__DIR__ . "/config/database.php");
-            include(__DIR__ . "/config/config.php");
+        
             $b = new database();
             $b->select("books","*");
             $result = $b->sql;
             ?>
-            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <?php while ($row = mysqli_fetch_assoc($result)) {  ?>
                 <div class="col-md-3" style="">
                     <div class="container-book" style="position: relative;
                             display:block;
