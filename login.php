@@ -26,12 +26,25 @@
         -ms-transform: translate(-50%, -50%); /* for IE 9 */
         -webkit-transform: translate(-50%, -50%); /* for Safari */
         }
+        .card{
+            max-width: 600px;
+            margin: 0 auto;
+        }
         </style>
 </head>
 <body>
     <div class="container">
-
-        <div class="main-card mb-3 card">
+            <div class="row">
+                <div class="col-md-12" style="text-align:center">
+                    <img src="images/logo.png" height="50">
+                </div>
+                <div class="col-md-12" style="text-align:center">
+                    <i>Library. The world's largest ebook library</i>
+                </div>
+            </div><br><br>
+        <div class="row">
+            <div class="col-md-12">
+            <div class="main-card mb-3 card">
             <div class="card-body"><h5 class="card-title">Login</h5>
                 <form class="" method="POST" action="config/login.php">
                     <div class="position-relative row form-group"><label for="exampleEmail" class="col-sm-2 col-form-label">Email</label>
@@ -50,6 +63,9 @@
                 </form>
             </div>
         </div>
+       </div>
+        </div>  
+       
                             
         <div style=" padding: 20px">
             <div class="row">
