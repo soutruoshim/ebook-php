@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['id']) && !isset($_SESSION['email'])) {
-         header("Location: ../index.php");
-    }
+    // session_start();
+    // if (!isset($_SESSION['id']) && !isset($_SESSION['email'])) {
+    //      header("Location: ../index.php");
+    // }
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-<link href="../main.css" rel="stylesheet"></head>
+    <link href="../../main.css" rel="stylesheet"></head>
 <body>
     <?php
       $active = $_SERVER['REQUEST_URI'];
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?= strtoupper($_SESSION['name']) ?>
+                                        <?= isset($_SESSION['name'])? strtoupper($_SESSION['name']):'' ?>
                                     </div>
                                 </div>
                             </div>
@@ -132,20 +132,27 @@
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
-                                    <a href="../admin/category.php" class="<?= $active == '/ebook-php/admin/category.php'?'mm-active':''?>">
+                                    <a href="../dashboard.php" class="<?= $active == '/ebook-php/admin/dashboard.php'?'mm-active':''?>">
+                                        <i class="metismenu-icon pe-7s-note2"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading"></li>
+                                <li>
+                                    <a href="../category/category.php" class="<?= $active == '/ebook-php/admin/category/category.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                         Categories
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
-                                    <a href="../admin/ebook.php" class="<?= $active == '/ebook-php/admin/ebook.php'?'mm-active':''?>">
+                                    <a href="../ebook/ebook.php" class="<?= $active == '/ebook-php/admin/ebook/ebook.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-notebook"></i>
                                         E-books
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="../admin/user.php" class="<?= $active == '/ebook-php/admin/user.php'?'mm-active':''?>">
+                                    <a href="../user/user.php" class="<?= $active == '/ebook-php/admin/user/user.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-users"></i>
                                         Users
                                     </a>

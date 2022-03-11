@@ -33,7 +33,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['name'] = $row['firstname'].' '.$row['lastname'];
                 $_SESSION['id'] = $row['id'];
-                header("Location: ../admin/ebook.php");
+                header("Location: ../admin/dashboard.php");
                 exit();
             }else{
                 header("Location: ../login.php?error=Incorect User name or password");
