@@ -126,14 +126,14 @@
                                 <li class="app-sidebar__heading"></li>
                                 <li>
                                     <a href="../index.php" class="">
-                                        <i class="metismenu-icon pe-7s-rocket"></i>
+                                        <i class="metismenu-icon pe-7s-global"></i>
                                         View Page
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
                                     <a href="../dashboard/dashboard.php" class="<?= $active == '/ebook-php/admin/dashboard/dashboard.php'?'mm-active':''?>">
-                                        <i class="metismenu-icon pe-7s-note2"></i>
+                                        <i class="metismenu-icon pe-7s-rocket"></i>
                                         Dashboard
                                     </a>
                                 </li>
