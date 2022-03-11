@@ -1,5 +1,5 @@
 <?php
-   include("inc/header.php");
+   include("../inc/header.php");
    
 ?>
 <div class="app-page-title">
@@ -29,6 +29,6 @@
     </div>
 </div>
 <?php
-   include("inc/footer.php");
+   include("../inc/footer.php");
 ?>
                    

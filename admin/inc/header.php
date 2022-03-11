@@ -132,7 +132,7 @@
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
-                                    <a href="../dashboard.php" class="<?= $active == '/ebook-php/admin/dashboard.php'?'mm-active':''?>">
+                                    <a href="../dashboard/dashboard.php" class="<?= $active == '/ebook-php/admin/dashboard/dashboard.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                         Dashboard
                                     </a>

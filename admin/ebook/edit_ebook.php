@@ -1,6 +1,6 @@
 <?php
-   include("inc/header.php");
-   include(__DIR__ . "/../config/database.php");
+   include("../inc/header.php");
+   include(__DIR__ . "/../../config/database.php");
    if(isset($_GET['id'])){
        $id = $_GET['id'];
       
@@ -26,7 +26,7 @@
         <div class="page-title-actions">
             
             <div class="d-inline-block dropdown">
-                <a type="button" class="btn-shadow btn btn-info" href="../admin/ebook.php" >
+                <a type="button" class="btn-shadow btn btn-info" href="../ebook/ebook.php" >
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-reply fa-w-20"></i>
                     </span>
@@ -135,6 +135,6 @@
     </div>
 </div>
 <?php
-   include("inc/footer.php");
+   include("../inc/footer.php");
 ?>
                    

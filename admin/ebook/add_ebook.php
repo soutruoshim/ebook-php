@@ -1,5 +1,7 @@
 <?php
-   include("inc/header.php");
+   include("../inc/header.php");
+    // include 'database.php';
+    include(__DIR__ . "/../../config/database.php");
 ?>
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -16,7 +18,7 @@
         <div class="page-title-actions">
             
             <div class="d-inline-block dropdown">
-                <a type="button" class="btn-shadow btn btn-info" href="../admin/ebook.php" >
+                <a type="button" class="btn-shadow btn btn-info" href="../ebook/ebook.php" >
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-reply fa-w-20"></i>
                     </span>
@@ -63,8 +65,7 @@
                     <div class="position-relative form-group">
                         <label class="">Category</label>
                         <?php 
-                            // include 'database.php';
-                            include(__DIR__ . "/../config/database.php");
+                           
                             $b = new database();
                             $b->select("categories","*");
                             $result = $b->sql;
@@ -125,6 +126,6 @@
     </div>
 </div>
 <?php
-   include("inc/footer.php");
+   include("../inc/footer.php");
 ?>
                    

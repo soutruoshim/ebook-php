@@ -1,5 +1,7 @@
 <?php
-   include("inc/header.php");
+   include("../inc/header.php");
+    // include 'database.php';
+    include(__DIR__ . "/../../config/database.php");
 ?>
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -16,7 +18,7 @@
         <div class="page-title-actions">
             
             <div class="d-inline-block dropdown">
-                <a type="button" class="btn-shadow btn btn-info" href="../admin/add_category.php" >
+                <a type="button" class="btn-shadow btn btn-info" href="../category/add_category.php" >
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-plus fa-w-20"></i>
                     </span>
@@ -45,8 +47,7 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        // include 'database.php';
-                                        include(__DIR__ . "/../config/database.php");
+                                       
                                         $b = new database();
                                         $b->select("categories","*");
                                         $result = $b->sql;
@@ -78,6 +79,6 @@
             </div>
 
 <?php
-   include("inc/footer.php");
+   include("../inc/footer.php");
 ?>
                    
