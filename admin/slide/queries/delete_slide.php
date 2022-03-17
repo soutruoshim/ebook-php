@@ -4,8 +4,16 @@
     $id = $_POST['id'];
 
     $a = new database();
-    $a->delete('categories',"id='$id'");
+    $a->select("slides","*","id='$id'");
+    $result = $a->sql;
+
+    $row = mysqli_fetch_assoc($result);
+    $image = $row['image'];
+    unlink(__DIR__ . "/../../../images/slide/".$image);
+ 
+
+    $a->delete('slides',"id='$id'");
     if ($a == true) {
-        header('location:../category.php');
+        header('location:../slide.php');
     }
 ?>

@@ -7,18 +7,18 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
+                <i class="pe-7s-photo icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Category
-                <div class="page-title-subheading">This is a page for management categories.
+            <div>Slide
+                <div class="page-title-subheading">This is a page for management slide.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
             
             <div class="d-inline-block dropdown">
-                <a type="button" class="btn-shadow btn btn-info" href="../category/add_category.php" >
+                <a type="button" class="btn-shadow btn btn-info" href="../slide/add_slide.php" >
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-plus fa-w-20"></i>
                     </span>
@@ -39,28 +39,29 @@
                             <table class="table" id="tbl_category">
                                 <thead>
                                     <tr>
-                                        <th scope="col" width="15%">Id</th>
-                                        <th scope="col" width="35%">Name</th>
-                                        <th scope="col" width="35%">Slug</th>
-                                        <th scope="col" width="15%">Action</th>
+                                        <th scope="col" width = "10%">Id</th>
+                                        <th scope="col" width = "35%">Title</th>
+                                        <th scope="col" width = "35%">Image</th>
+                                        <th scope="col" width = "10%">Status</th>
+                                        <th scope="col" width = "10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
                                        
                                         $b = new database();
-                                        $b->select("categories","*");
+                                        $b->select("slides","*");
                                         $result = $b->sql;
                                     ?>
                                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['slug']; ?></td>
+                                            <td><?php echo $row['title']; ?></td>
+                                            <td><img src="<?php echo WEB_URL . 'images/slide/' .$row['image']; ?>" width="170" height="70"/> </td>
+                                            <td><?php echo $row['status']; ?></td>
                                             <td>
-                                                
-                                                <form method="POST" action="queries/delete_category.php">
-                                                    <a href="edit_category.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
+                                                <form method="POST" action="queries/delete_slide.php">
+                                                    <a href="edit_slide.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
                                                     <input name="id" type="hidden" value="<?php echo $row['id']; ?>">
                                                     <input type="submit" class="btn btn-danger btn-sm" name="submit" value="Delete">
                                                 </form>

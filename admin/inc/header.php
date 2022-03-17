@@ -143,7 +143,7 @@
                                 <li class="app-sidebar__heading"></li>
                                 <li>
                                     <a href="../slide/slide.php" class="<?= $active == '/ebook-php/admin/slide/slide.php'?'mm-active':''?>">
-                                        <i class="metismenu-icon pe-7s-note2"></i>
+                                        <i class="metismenu-icon pe-7s-photo"></i>
                                         Slide
                                     </a>
                                 </li>

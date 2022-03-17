@@ -5,11 +5,11 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                <i class="pe-7s-users icon-gradient bg-mean-fruit">
                 </i>
             </div>
             <div>Add User
-                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                <div class="page-title-subheading">This is page for create new user.
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <label class="">Confirm Password</label>
                     <input name="c_password" id="c_password" placeholder="" type="password" class="form-control">
                 </div>
-                <input type="submit" class="btn btn-dark" name="submit" value="Save User">
+                <input type="submit" class="btn btn-primary" name="submit" value="Save User">
             </form>
         </div>
         </div>

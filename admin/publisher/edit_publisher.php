@@ -15,7 +15,7 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                <i class="pe-7s-compass icon-gradient bg-mean-fruit">
                 </i>
             </div>
             <div>Edit Publisher
@@ -51,7 +51,7 @@
                     <label class="">Slug</label>
                     <input name="slug" id="slug" value="<?php if(isset($row)) { echo $row['slug']; } ?>" placeholder="" type="text" class="form-control">
                 </div>
-                <input type="submit" class="btn btn-dark" name="submit" value="Save Publisher">
+                <input type="submit" class="btn btn-primary" name="submit" value="Save Publisher">
             </form>
         </div>
         </div>

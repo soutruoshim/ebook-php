@@ -5,6 +5,7 @@
     $id = $_POST['id'];
 
     $a = new database();
+    
     $a->select("books","*","id='$id'");
     $result = $a->sql;
 
