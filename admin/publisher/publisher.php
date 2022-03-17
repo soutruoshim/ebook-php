@@ -10,15 +10,15 @@
                 <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Category
-                <div class="page-title-subheading">This is a page for management categories.
+            <div>Publishers
+                <div class="page-title-subheading">This is a page for management publishers.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
             
             <div class="d-inline-block dropdown">
-                <a type="button" class="btn-shadow btn btn-info" href="../category/add_category.php" >
+                <a type="button" class="btn-shadow btn btn-info" href="../publisher/add_publisher.php" >
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-plus fa-w-20"></i>
                     </span>
@@ -49,7 +49,7 @@
                                     <?php 
                                        
                                         $b = new database();
-                                        $b->select("categories","*");
+                                        $b->select("publishers","*");
                                         $result = $b->sql;
                                     ?>
                                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -59,8 +59,8 @@
                                             <td><?php echo $row['slug']; ?></td>
                                             <td>
                                                 
-                                                <form method="POST" action="queries/delete_category.php">
-                                                    <a href="edit_category.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
+                                                <form method="POST" action="queries/delete_publisher.php">
+                                                    <a href="edit_publisher.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
                                                     <input name="id" type="hidden" value="<?php echo $row['id']; ?>">
                                                     <input type="submit" class="btn btn-danger btn-sm" name="submit" value="Delete">
                                                 </form>

@@ -10,21 +10,19 @@
                 <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Category
-                <div class="page-title-subheading">This is a page for management categories.
+            <div>Authors
+                <div class="page-title-subheading">This is a page for management authors.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
-            
             <div class="d-inline-block dropdown">
-                <a type="button" class="btn-shadow btn btn-info" href="../category/add_category.php" >
+                <a type="button" class="btn-shadow btn btn-info" href="../author/add_author.php" >
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-plus fa-w-20"></i>
                     </span>
                     Add
                 </a>
-                
             </div>
         </div>    
     </div>
@@ -35,8 +33,8 @@
                 <div class="main-card mb-3 card">
                  <div class="card-body"><h5 class="card-title"></h5>
                 <div class="row">
-                        <div class="col-md-12 p-3">
-                            <table class="table" id="tbl_category">
+                        <div class="col-md-12 p-0">
+                            <table class="table" id = "tbl_author">
                                 <thead>
                                     <tr>
                                         <th scope="col" width="15%">Id</th>
@@ -49,7 +47,7 @@
                                     <?php 
                                        
                                         $b = new database();
-                                        $b->select("categories","*");
+                                        $b->select("authors","*");
                                         $result = $b->sql;
                                     ?>
                                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -58,13 +56,14 @@
                                             <td><?php echo $row['name']; ?></td>
                                             <td><?php echo $row['slug']; ?></td>
                                             <td>
-                                                
-                                                <form method="POST" action="queries/delete_category.php">
-                                                    <a href="edit_category.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
+                                                <form method="POST" action="queries/delete_author.php">
+                                                    <a href="edit_author.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-primary btn-sm">Edit</a>
                                                     <input name="id" type="hidden" value="<?php echo $row['id']; ?>">
                                                     <input type="submit" class="btn btn-danger btn-sm" name="submit" value="Delete">
                                                 </form>
+                                               
                                             </td>
+                                        
                                         </tr>
                                     <?php } ?>
                               </tbody>
@@ -79,8 +78,8 @@
 <?php
    include("../inc/footer.php");
 ?>
-<<script>
+<script>
     $(document).ready(function() {
-       $('#tbl_category').DataTable();
+       $('#tbl_author').DataTable();
     } );
-</script>                   
+</script>       

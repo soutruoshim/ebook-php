@@ -1,5 +1,5 @@
 <?php 
-    include(__DIR__ . "/../../config/database.php");
+    include(__DIR__ . "/../../../config/database.php");
     if (isset($_POST['submit'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];

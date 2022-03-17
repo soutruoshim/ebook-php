@@ -19,7 +19,7 @@
                 </i>
             </div>
             <div>Edit Category
-                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                <div class="page-title-subheading">This is a page you can edit category.
                 </div>
             </div>
         </div>

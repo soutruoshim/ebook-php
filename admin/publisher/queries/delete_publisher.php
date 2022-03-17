@@ -4,8 +4,8 @@
     $id = $_POST['id'];
 
     $a = new database();
-    $a->delete('categories',"id='$id'");
+    $a->delete('publishers',"id='$id'");
     if ($a == true) {
-        header('location:../category.php');
+        header('location:../publisher.php');
     }
 ?>
