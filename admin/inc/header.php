@@ -146,6 +146,20 @@
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
+                                    <a href="../author/author.php" class="<?= $active == '/ebook-php/admin/author/author.php'?'mm-active':''?>">
+                                        <i class="metismenu-icon pe-7s-study"></i>
+                                        Authors
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading"></li>
+                                <li>
+                                    <a href="../publisher/publisher.php" class="<?= $active == '/ebook-php/admin/publisher/publisher.php'?'mm-active':''?>">
+                                        <i class="metismenu-icon pe-7s-compass"></i>
+                                        Publishers
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading"></li>
+                                <li>
                                     <a href="../ebook/ebook.php" class="<?= $active == '/ebook-php/admin/ebook/ebook.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-notebook"></i>
                                         E-books
