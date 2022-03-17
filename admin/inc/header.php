@@ -142,6 +142,13 @@
                                 </li>
                                 <li class="app-sidebar__heading"></li>
                                 <li>
+                                    <a href="../slide/slide.php" class="<?= $active == '/ebook-php/admin/slide/slide.php'?'mm-active':''?>">
+                                        <i class="metismenu-icon pe-7s-note2"></i>
+                                        Slide
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading"></li>
+                                <li>
                                     <a href="../category/category.php" class="<?= $active == '/ebook-php/admin/category/category.php'?'mm-active':''?>">
                                         <i class="metismenu-icon pe-7s-note2"></i>
                                         Categories

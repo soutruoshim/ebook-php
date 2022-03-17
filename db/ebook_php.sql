@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 17, 2022 at 07:07 AM
+-- Generation Time: Mar 17, 2022 at 07:34 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.0.13
 
@@ -122,6 +122,23 @@ CREATE TABLE IF NOT EXISTS `publishers` (
 
 INSERT INTO `publishers` (`id`, `name`, `slug`, `created_dt`, `update_dt`) VALUES
 (1, 'Pube', 'pube', '2022-03-17 14:00:16', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slides`
+--
+
+DROP TABLE IF EXISTS `slides`;
+CREATE TABLE IF NOT EXISTS `slides` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `image` text COLLATE utf8_bin,
+  `status` enum('active','inactive') COLLATE utf8_bin DEFAULT NULL,
+  `created_dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_dt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
