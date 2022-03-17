@@ -49,24 +49,34 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label class="">Author</label>
-                        <input name="author" id="author" placeholder="" type="text" class="form-control">
+                        <label class="">ISBN</label>
+                        <input name="ISBN" id="ISBN" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
+               
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label class="">ISBN</label>
-                        <input name="ISBN" id="ISBN" placeholder="" type="text" class="form-control">
+                        <label class="">Author</label>
+                        <?php 
+                           $b = new database();
+                           $b->select("authors","*");
+                           $result_author = $b->sql;
+                       ?>
+                       <select class="form-control" name="author_id" id="author_id">
+                           <option value="" selected disabled>Choice Author</option>
+                            <?php while ($row = mysqli_fetch_assoc($result_author)) { ?>
+                                <option value="<?= $row['id'] ?>"> <?= $row['name'] ?> </option>
+                            <?php } ?>
+                         
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label class="">Category</label>
                         <?php 
-                           
-                            $b = new database();
                             $b->select("categories","*");
                             $result = $b->sql;
                         ?>
@@ -80,31 +90,54 @@
                    </div>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-md-6">
-                        <div class="position-relative form-group">
-                        <label class="">Publication Year</label>
-                        <!-- <input name="publication_year" id="publication_year" placeholder="" type="text" class="form-control"> -->
-                        <select class="form-control" name="publication_year" id="publication_year">
-                            <option value="" selected disabled>Select Year</option>
-                        <?php for($year = intval(date('Y')) - 10;  $year <= intval(date('Y')); $year++ ) { ?>
-                        <option value="<?= $year ?>"> <?= $year ?> </option>
+                    <div class="position-relative form-group">
+                        <label class="">Publisher</label>
+                        <?php 
+                            $b->select("publishers","*");
+                            $result = $b->sql;
+                        ?>
+                        <select class="form-control" name="publisher_id" id="publisher_id">
+                            <option value="" selected disabled>Choice Publisher</option>
+                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                        <option value="<?= $row['id'] ?>"> <?= $row['name'] ?> </option>
                         <?php } ?>
 
                         </select>
+                   </div>
+                </div>
+                <div class="col-md-6">
+                        <div class="position-relative form-group">
+                            <label class="">Publication Year</label>
+                            <!-- <input name="publication_year" id="publication_year" placeholder="" type="text" class="form-control"> -->
+                            <select class="form-control" name="publication_year" id="publication_year">
+                                <option value="" selected disabled>Select Year</option>
+                            <?php for($year = intval(date('Y')) - 10;  $year <= intval(date('Y')); $year++ ) { ?>
+                            <option value="<?= $year ?>"> <?= $year ?> </option>
+                            <?php } ?>
+
+                            </select>
+                         </div>
+                </div>
+
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Pages</label>
+                        <input name="page" id="page" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                    <label class="">Price</label>
-                    <input name="price" id="price" placeholder="" type="text" class="form-control">
+                        <label class="">Price</label>
+                        <input name="price" id="price" placeholder="" type="text" class="form-control">
+                    </div>
                 </div>
-                </div>
+                
             </div>
-            
-            
-            
             <div class="position-relative form-group">
                 <label class="">Detail</label>
                 <textarea rows="5" cols="20" name="detail" id="detail" placeholder="" type="text" class="form-control"></textarea>

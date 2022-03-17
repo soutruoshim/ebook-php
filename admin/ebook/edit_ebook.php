@@ -1,10 +1,10 @@
 <?php
    include("../inc/header.php");
    include(__DIR__ . "/../../config/database.php");
+   $b = new database();
    if(isset($_GET['id'])){
        $id = $_GET['id'];
       
-       $b = new database();
        $b->select("books","*","id='$id'");
        $result = $b->sql;
 
@@ -19,7 +19,7 @@
                 </i>
             </div>
             <div>Edit Ebook
-                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                <div class="page-title-subheading">This is page for edit ebook.
                 </div>
             </div>
         </div>
@@ -58,32 +58,42 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label class="">Author</label>
-                        <input name="author" id="author" value="<?php if(isset($row)) { echo $row['author']; } ?>" placeholder="" type="text" class="form-control">
+                        <label class="">ISBN</label>
+                        <input name="ISBN" id="ISBN" value="<?php if(isset($row)) { echo $row['ISBN']; } ?>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
+                
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label class="">ISBN</label>
-                        <input name="ISBN" id="ISBN" value="<?php if(isset($row)) { echo $row['ISBN']; } ?>" placeholder="" type="text" class="form-control">
+                        <label class="">Author</label>
+                        <?php 
+                        
+                           $b->select("authors","*");
+                           $result_author = $b->sql;
+                       ?>
+                       <select class="form-control" name="author_id" id="author_id">
+                           <option value="" selected disabled>Choice Author</option>
+                            <?php while ($row_author = mysqli_fetch_assoc($result_author)) { ?>
+                                <option value="<?= $row_author['id'] ?>" <?= $row_author['id']==$row['author_id']?'selected':'' ?> > <?= $row_author['name'] ?> </option>
+                            <?php } ?>
+                         
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label class="">Category</label>
                         <?php 
-                           
-                            $b = new database();
                             $b->select("categories","*");
                             $result = $b->sql;
                         ?>
                         <select class="form-control" name="category_id" id="category_id">
                             <option value="" selected disabled>Choice Category</option>
-                        <?php while ($row_category = mysqli_fetch_assoc($result)) { ?>
-                        <option <?= $row_category['id']==$row['category_id']?'selected':''  ?> value="<?= $row_category['id'] ?>"> <?= $row_category['name'] ?> </option>
-                        <?php } ?>
+                            <?php while ($row_category = mysqli_fetch_assoc($result)) { ?>
+                            <option <?= $row_category['id']==$row['category_id']?'selected':''  ?> value="<?= $row_category['id'] ?>"> <?= $row_category['name'] ?> </option>
+                            <?php } ?>
 
                         </select>
                    </div>
@@ -92,18 +102,36 @@
             
             <div class="row">
                 <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Publisher</label>
+                        <?php 
+                            $b->select("publishers","*");
+                            $result = $b->sql;
+                        ?>
+                        <select class="form-control" name="publisher_id" id="publisher_id">
+                            <option value="" selected disabled>Choice Publisher</option>
+                            <?php while ($row_publisher = mysqli_fetch_assoc($result)) { ?>
+                            <option <?= $row_publisher['id']==$row['publisher_id']?'selected':''  ?> value="<?= $row_publisher['id'] ?>"> <?= $row_publisher['name'] ?> </option>
+                            <?php } ?>
+
+                        </select>
+                   </div>
+                </div>
+                <div class="col-md-6">
                         <div class="position-relative form-group">
                         <label class="">Publication Year</label>
                         <!-- <input name="publication_year" id="publication_year" placeholder="" type="text" class="form-control"> -->
                         <select class="form-control" name="publication_year" id="publication_year">
                             <option value="" selected disabled>Select Year</option>
                         <?php for($year = intval(date('Y')) - 10;  $year <= intval(date('Y')); $year++ ) { ?>
-                        <option  <?= $year==$row['publication_year']?'selected':''  ?> value="<?= $year ?>"> <?= $year ?> </option>
+                        <option  <?= $year==$row['publish_year']?'selected':''  ?> value="<?= $year ?>"> <?= $year ?> </option>
                         <?php } ?>
 
                         </select>
                     </div>
                 </div>
+            </div>    
+            <div class="row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                     <label class="">Price</label>
@@ -111,9 +139,6 @@
                 </div>
                 </div>
             </div>
-            
-            
-            
             <div class="position-relative form-group">
                 <label class="">Detail</label>
                 <textarea rows="5" cols="20" name="detail" id="detail" placeholder="" type="text" class="form-control"><?php if(isset($row)) { echo $row['detail']; } ?></textarea>
@@ -128,7 +153,7 @@
                 <label class="">Book File</label>
                 <input type="file" name="book_file" placeholder="Choose Book File" id="book_file" class="form-control">
             </div>
-            <input type="submit" class="btn btn-dark" name="submit" value="Save Ebook">
+            <input type="submit" class="btn btn-primary" name="submit" value="Save Ebook">
            </form>
         </div>
         </div>
