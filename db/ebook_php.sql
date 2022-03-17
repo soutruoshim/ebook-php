@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 17, 2022 at 04:15 AM
+-- Generation Time: Mar 17, 2022 at 07:07 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.0.13
 
@@ -31,10 +31,18 @@ DROP TABLE IF EXISTS `authors`;
 CREATE TABLE IF NOT EXISTS `authors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `slug` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `created_dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_dt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `name`, `slug`, `created_dt`, `update_dt`) VALUES
+(1, 'author4', 'author4', '2022-03-17 13:30:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `categories`
@@ -84,7 +92,13 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'Programming', 'programming', '2022-03-09 09:55:59', NULL),
-(2, 'Business & Economics', 'business_&_economics', '2022-03-09 09:56:53', NULL);
+(2, 'Business & Economics', 'business_&_economics', '2022-03-09 09:56:53', NULL),
+(3, 'Design', 'design', '2022-03-17 06:07:25', NULL),
+(4, '345', '345', '2022-03-17 06:18:55', NULL),
+(5, '345', '345', '2022-03-17 06:18:59', NULL),
+(6, '345345', '345345', '2022-03-17 06:19:02', NULL),
+(7, '345345', '345345', '2022-03-17 06:19:07', NULL),
+(8, '345345', '345345', '2022-03-17 06:19:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,10 +110,18 @@ DROP TABLE IF EXISTS `publishers`;
 CREATE TABLE IF NOT EXISTS `publishers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `slug` varchar(200) COLLATE utf8_bin NOT NULL,
   `created_dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_dt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `publishers`
+--
+
+INSERT INTO `publishers` (`id`, `name`, `slug`, `created_dt`, `update_dt`) VALUES
+(1, 'Pube', 'pube', '2022-03-17 14:00:16', NULL);
 
 -- --------------------------------------------------------
 
