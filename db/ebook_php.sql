@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 17, 2022 at 07:34 AM
+-- Generation Time: Mar 18, 2022 at 03:40 AM
 -- Server version: 5.7.36
 -- PHP Version: 8.0.13
 
@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `author_id` int(200) DEFAULT NULL,
-  `title` int(11) DEFAULT NULL,
+  `title` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `ISBN` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `publisher_id` int(11) DEFAULT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,15 @@ CREATE TABLE IF NOT EXISTS `slides` (
   `created_dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_dt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `slides`
+--
+
+INSERT INTO `slides` (`id`, `title`, `image`, `status`, `created_dt`, `update_dt`) VALUES
+(2, '345', '72fbcd2736c9f75914389b53048d73ed.png', 'inactive', '2022-03-17 15:04:13', NULL),
+(3, '3456', '9da68f704affa4077fa9c3f3e3f188da.png', 'active', '2022-03-17 15:05:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -157,14 +165,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'souts', 'ruoshims', 'sout.rahim@gmail.com', '0000', '2022-03-04 02:22:58', NULL);
+(1, 'sout', 'ruoshim', 'sout.rahim@gmail.com', '0000', '2022-03-04 02:22:58', NULL),
+(2, 'srh', 'dp', 'srhdp@gmail.com', '0000', '2022-03-18 03:38:33', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
