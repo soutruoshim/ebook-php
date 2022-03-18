@@ -33,6 +33,8 @@
 
             $sql .=" WHERE $id";
 
+            echo $sql;
+
             $result = $this->mysqli->query($sql);
         }
 

@@ -134,9 +134,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                    <label class="">Price</label>
-                    <input name="price" id="price" placeholder="" value="<?php if(isset($row)) { echo $row['price']; } ?>" type="text" class="form-control">
+                        <label class="">Pages</label>
+                        <input name="page" id="page" placeholder="" value="<?php if(isset($row)) { echo $row['page']; } ?>" type="text" class="form-control">
+                    </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label class="">Price</label>
+                        <input name="price" id="price" placeholder="" value="<?php if(isset($row)) { echo $row['price']; } ?>" type="text" class="form-control">
+                    </div>
                 </div>
             </div>
             <div class="position-relative form-group">

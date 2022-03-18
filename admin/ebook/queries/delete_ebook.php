@@ -1,7 +1,6 @@
 <?php 
-    include(__DIR__ . "/../../config/database.php");
+    include(__DIR__ . "/../../../config/database.php");
     
-
     $id = $_POST['id'];
 
     $a = new database();
@@ -12,8 +11,8 @@
     $row = mysqli_fetch_assoc($result);
     $image = $row['image'];
     $file = $row['book_file'];
-    unlink(__DIR__ . "/../../images/ebook/".$image);
-    unlink(__DIR__ . "/../../files/ebook/".$file);
+    unlink(__DIR__ . "/../../../images/ebook/".$image);
+    unlink(__DIR__ . "/../../../files/ebook/".$file);
    
 
     $a->delete('books',"id='$id'");
